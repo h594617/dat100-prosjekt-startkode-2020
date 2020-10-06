@@ -14,13 +14,20 @@ public class GPSDataConverter {
 
 	public static int toSeconds(String timestr) {
 		
-		int secs;
+		int secs = Integer.parseInt(timestr.substring(TIME_STARTINDEX, 13))*60*60;
+		secs += Integer.parseInt(timestr.substring(14, 16))*60;
+		secs += Integer.parseInt(timestr.substring(17, 19));
+		
 		int hr, min, sec;
+		
+		return secs;
+
 		
 		// TODO
 		// OPPGAVE - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		
+		//throw new UnsupportedOperationException(TODO.method());
 
 		// OPPGAVE - SLUTT
 		
