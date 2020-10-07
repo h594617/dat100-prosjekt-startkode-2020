@@ -98,10 +98,13 @@ public class GPSUtils {
 
 		// TODO - START
 		secs = gpspoint2.getTime() - gpspoint1.getTime();
+		System.out.println(secs);
 		
-		speed = distance(gpspoint1, gpspoint2) / secs;
+		speed = (distance(gpspoint1, gpspoint2) / secs)*3.6;
 		
-
+		System.out.println(speed);
+		
+		
 		
 		return speed;
 		
@@ -116,6 +119,7 @@ public class GPSUtils {
 		String TIMESEP = ":";
 
 		// TODO - START
+		
 		
 		throw new UnsupportedOperationException(TODO.method());
 
