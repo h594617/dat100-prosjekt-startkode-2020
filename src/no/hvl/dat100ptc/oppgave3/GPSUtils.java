@@ -38,10 +38,11 @@ public class GPSUtils {
 	public static double[] getLatitudes(GPSPoint[] gpspoints) {
 
 		double[] latTab = new double[gpspoints.length];
+
 		for (int i = 0; i < gpspoints.length; i++) {
 			latTab[i] = gpspoints[i].getLatitude();
-
 		}
+
 		return latTab;
 
 	}
@@ -56,7 +57,6 @@ public class GPSUtils {
 
 		}
 		return lonTab;
-//		throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - SLUTT
 
@@ -93,22 +93,16 @@ public class GPSUtils {
 	public static double speed(GPSPoint gpspoint1, GPSPoint gpspoint2) {
 
 		int secs;
-		
+
 		double speed;
 
 		// TODO - START
 		secs = gpspoint2.getTime() - gpspoint1.getTime();
-		System.out.println(secs);
-		
-		speed = (distance(gpspoint1, gpspoint2) / secs)*3.6;
-		
-		System.out.println(speed);
-		
-		
-		
+
+		speed = (distance(gpspoint1, gpspoint2) / secs) * 3.6;
+
 		return speed;
-		
-		
+
 		// TODO - SLUTT
 
 	}
@@ -119,12 +113,18 @@ public class GPSUtils {
 		String TIMESEP = ":";
 
 		// TODO - START
+		int h = secs / 3600;
+		int m = (secs % 3600) / 60;
+		int s = (secs % 3600) % 60;
+
+		timestr = "  "+String.format("%02d",h)+TIMESEP+String.format("%02d",m)+TIMESEP+String.format("%02d",s);
 		
+		return timestr;
 		
-		throw new UnsupportedOperationException(TODO.method());
+//		throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - SLUTT
-		
+
 	}
 
 	private static int TEXTWIDTH = 10;
