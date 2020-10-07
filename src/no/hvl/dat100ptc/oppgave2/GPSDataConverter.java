@@ -13,6 +13,8 @@ public class GPSDataConverter {
 	private static int TIME_STARTINDEX = 11; // startindex for tidspunkt i timestr
 
 	public static int toSeconds(String timestr) {
+		// TODO
+		// OPPGAVE - START
 		
 		int secs = Integer.parseInt(timestr.substring(TIME_STARTINDEX, 13))*60*60;
 		secs += Integer.parseInt(timestr.substring(14, 16))*60;
@@ -23,8 +25,6 @@ public class GPSDataConverter {
 		return secs;
 
 		
-		// TODO
-		// OPPGAVE - START
 		
 		
 		//throw new UnsupportedOperationException(TODO.method());
