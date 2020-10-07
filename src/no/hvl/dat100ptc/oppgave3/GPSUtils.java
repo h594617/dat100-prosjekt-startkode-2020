@@ -120,7 +120,6 @@ public class GPSUtils {
 		timestr = "  "+String.format("%02d",h)+TIMESEP+String.format("%02d",m)+TIMESEP+String.format("%02d",s);
 		
 		return timestr;
-		
 //		throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - SLUTT
