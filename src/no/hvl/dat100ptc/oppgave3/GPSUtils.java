@@ -117,8 +117,9 @@ public class GPSUtils {
 		int m = (secs % 3600) / 60;
 		int s = (secs % 3600) % 60;
 
-		timestr = "  "+String.format("%02d",h)+TIMESEP+String.format("%02d",m)+TIMESEP+String.format("%02d",s);
-		
+		timestr = "  " + String.format("%02d", h) + TIMESEP + String.format("%02d", m) + TIMESEP
+				+ String.format("%02d", s);
+
 		return timestr;
 //		throw new UnsupportedOperationException(TODO.method());
 
@@ -131,11 +132,13 @@ public class GPSUtils {
 	public static String formatDouble(double d) {
 
 		String str;
-
+		System.out.println("initial " + d);
 		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
+		str="      "+String.format("%.02f", d);
+		System.out.println(str);
+		return str;
+		
+		
 		// TODO - SLUTT
 
 	}
