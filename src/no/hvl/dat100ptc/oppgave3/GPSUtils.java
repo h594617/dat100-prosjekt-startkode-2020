@@ -99,7 +99,7 @@ public class GPSUtils {
 		// TODO - START
 		secs = gpspoint2.getTime() - gpspoint1.getTime();
 
-		speed = (distance(gpspoint1, gpspoint2) / secs) * 3.6;
+		speed = (distance(gpspoint1, gpspoint2)) / secs *60 *60 /1000;
 
 		return speed;
 

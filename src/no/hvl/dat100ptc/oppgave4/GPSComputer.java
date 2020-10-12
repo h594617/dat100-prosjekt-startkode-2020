@@ -103,7 +103,6 @@ public class GPSComputer {
 			}
 		}
 		return maxspeed;
-//		throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - SLUTT
 		
@@ -113,21 +112,23 @@ public class GPSComputer {
 
 		double average = 0;
 		// TODO - START
-//		total distanse(double) / total tid(int)
 		return average = (totalDistance() / totalTime()) * 3.6;
 
-//		throw new UnsupportedOperationException(TODO.method());
 		// TODO - SLUTT
 
 	}
 
 	/*
-	 * bicycling, <10 mph, leisure, to work or for pleasure 4.0 bicycling, general
-	 * 8.0 bicycling, 10-11.9 mph, leisure, slow, light effort 6.0 bicycling,
-	 * 12-13.9 mph, leisure, moderate effort 8.0 bicycling, 14-15.9 mph, racing or
-	 * leisure, fast, vigorous effort 10.0 bicycling, 16-19 mph, racing/not drafting
-	 * or >19 mph drafting, very fast, racing general 12.0 bicycling, >20 mph,
-	 * racing, not drafting 16.0
+	 * bicycling, 
+	 * <10 mph, leisure, to work or for pleasure 4.0 bicycling, 
+	 * general 8.0 bicycling, 
+	 * 10-11.9 mph, leisure, slow, light effort 6.0 bicycling,
+	 * 12-13.9 mph, leisure, moderate effort 8.0 bicycling, 
+	 * 14-15.9 mph, racing or leisure, fast, vigorous effort 
+	 * 10.0 bicycling, 
+	 * 16-19 mph, racing/not drafting or 
+	 * >19 mph drafting, very fast, racing general 12.0 bicycling, 
+	 * >20 mph, racing, not drafting 16.0
 	 */
 
 	// conversion factor m/s to miles per hour
@@ -142,24 +143,31 @@ public class GPSComputer {
 		double met = 0;
 		double speedmph = speed * MS;
 
-		// TODO - START
+		if 		(speedmph < 10) 					{met = 4.0;}
+		else if (speedmph > 10 && speedmph <= 12) 	{met = 6.0;}
+		else if (speedmph > 12 && speedmph <= 14) 	{met = 8.0;}
+		else if (speedmph > 14 && speedmph <= 16) 	{met = 10.0;}
+		else if (speedmph > 16 && speedmph <= 20) 	{met = 12.0;}
+		else if (speedmph > 20) 					{met = 16.0;}
+		
+//		kcal = (weight*met)/3600.0;
+		kcal = ((secs/60)*met*3.5*weight)/200;
 
-//		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		return kcal;
+		
 
 	}
 
 	public double totalKcal(double weight) {
-
+		
 		double totalkcal = 0;
-
 		// TODO - START
 
-		throw new UnsupportedOperationException(TODO.method());
+		totalkcal = kcal(weight, totalTime(), averageSpeed());
+		
+		return totalkcal;
 
 		// TODO - SLUTT
-
 	}
 
 	private static double WEIGHT = 80.0;
