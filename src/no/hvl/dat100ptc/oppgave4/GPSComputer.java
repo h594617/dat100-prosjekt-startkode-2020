@@ -150,9 +150,9 @@ public class GPSComputer {
 		else if (speedmph > 16 && speedmph <= 20) 	{met = 12.0;}
 		else if (speedmph > 20) 					{met = 16.0;}
 		
-//		kcal = (weight*met)/3600.0;
-		kcal = ((secs/60)*met*3.5*weight)/200;
-
+//		kcal = ((secs/60)*met*3.5*weight)/200; 	// gir resultat: 22.4	testkcal: godkjent
+//		kcal = (weight*met)/3600.0; 			// gir resultat: 0.35	testkcal: godkjent
+		kcal = (weight*met*secs)/3600;			// gir resultat: 28,444
 		return kcal;
 		
 
@@ -162,7 +162,7 @@ public class GPSComputer {
 		
 		double totalkcal = 0;
 		// TODO - START
-
+		System.out.println("total metoden");
 		totalkcal = kcal(weight, totalTime(), averageSpeed());
 		
 		return totalkcal;
