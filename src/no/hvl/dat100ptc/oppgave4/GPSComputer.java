@@ -1,5 +1,7 @@
 package no.hvl.dat100ptc.oppgave4;
 
+import java.text.Format;
+
 import no.hvl.dat100ptc.TODO;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
 import no.hvl.dat100ptc.oppgave2.GPSData;
@@ -164,9 +166,7 @@ public class GPSComputer {
 		// TODO - START
 		System.out.println("total metoden");
 		totalkcal = kcal(weight, totalTime(), averageSpeed());
-		
 		return totalkcal;
-
 		// TODO - SLUTT
 	}
 
@@ -177,9 +177,12 @@ public class GPSComputer {
 		System.out.println("==============================================");
 
 		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
+		System.out.println("Total Time     :   " + GPSUtils.formatTime(totalTime()));
+		System.out.println("Total Distance :      " + totalDistance() + " km");
+		System.out.println("Total elevation:     "  + totalElevation() + " m");
+		System.out.println("Max speed      :      " + maxSpeed() + " km/t");
+		System.out.println("Average speed  :      " + averageSpeed() + " km/t");
+		System.out.println("Energy         :     " + totalKcal(WEIGHT) + "kcal");
 		// TODO - SLUTT
 
 	}
