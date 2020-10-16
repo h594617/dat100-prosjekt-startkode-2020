@@ -57,9 +57,18 @@ public class ShowRoute extends EasyGraphics {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		double maxlat = GPSUtils.findMax(GPSUtils.getLatitudes(gpspoints));
+		double minlat = GPSUtils.findMin(GPSUtils.getLatitudes(gpspoints));
+
+		ystep = MAPXSIZE / (Math.abs(maxlat - minlat)); 
+
+		
+		
+		//throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - SLUTT
+		
+		return ystep;
 		
 	}
 
@@ -67,7 +76,33 @@ public class ShowRoute extends EasyGraphics {
 
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		double xstep = xstep();
+		double ystep = ystep();
+		double minlat = GPSUtils.findMin(GPSUtils.getLatitudes(gpspoints));
+		double minlong = GPSUtils.findMin(GPSUtils.getLongitudes(gpspoints));
+
+		int x, y, prevx, prevy;
+		prevx = prevy = 0;
+		setColor(0, 0, 255);
+		for (int i = 0; i < gpspoints.length; i++) {
+			x = MARGIN + (int) ((gpspoints[i].getLongitude() - minlong) * xstep);
+			y = ybase - (int) ((gpspoints[i].getLatitude() - minlat) * ystep);
+
+			if (i != 0)
+				drawLine(prevx, prevy, x, y);
+
+			if (i == gpspoints.length - 1) {
+				setColor(0, 255, 0);
+				fillCircle(x, y, 5);
+			} else {
+				fillCircle(x, y, 3);
+			}
+
+			prevx = x;
+			prevy = y;
+		}
+		
+		//throw new UnsupportedOperationException(TODO.method());
 		
 		// TODO - SLUTT
 	}
@@ -81,7 +116,35 @@ public class ShowRoute extends EasyGraphics {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		String drawstring = "";
+		String totaltime = GPSUtils.formatTime(gpscomputer.totalTime());
+		drawstring = String.format("%-16s", "Total Time") + ": " + totaltime;
+		drawString(drawstring, TEXTDISTANCE, TEXTDISTANCE);
+
+		String totdist = GPSUtils.formatDouble(gpscomputer.totalDistance() / 1000);
+		drawstring = String.format("%-16s", "Total Distance") + ": " + totdist + " km";
+		drawString(drawstring, TEXTDISTANCE, TEXTDISTANCE * 2);
+
+		String totelev = GPSUtils.formatDouble(gpscomputer.totalElevation());
+		drawstring = String.format("%-16s", "Total Elevation") + ": " + totelev + " m";
+		drawString(drawstring, TEXTDISTANCE, TEXTDISTANCE * 3);
+
+		String fast = GPSUtils.formatDouble(gpscomputer.maxSpeed());
+		drawstring = String.format("%-16s", "Max Speed") + ": " + fast + " km/t";
+		drawString(drawstring, TEXTDISTANCE, TEXTDISTANCE * 4);
+
+		String gjenm = GPSUtils.formatDouble(gpscomputer.averageSpeed());
+		drawstring = String.format("%-16s", "Average Speed") + ": " + gjenm + " km/t";
+		drawString(drawstring, TEXTDISTANCE, TEXTDISTANCE * 5);
+
+		double weight = 44.77; //vet ikke hvor man finner weight som man trenger for å bruke totalkcal opprettet derfor double weight for at vi skulle få et resultat...
+		String totkcal = GPSUtils.formatDouble(gpscomputer.totalKcal(weight));
+		drawstring = String.format("%-16s", "Energy") + ": " + totkcal + " kcal";
+		drawString(drawstring, TEXTDISTANCE, TEXTDISTANCE * 6);
+		
+		//throw new UnsupportedOperationException(TODO.method());
+		
+		//klarte ikke denne oppgaven uten å se på noen klassekamerater sin kode.
 		
 		// TODO - SLUTT;
 	}
